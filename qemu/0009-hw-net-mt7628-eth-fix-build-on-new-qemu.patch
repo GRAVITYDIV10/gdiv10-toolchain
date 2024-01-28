@@ -1,0 +1,25 @@
+From cc1678cd173f1819f02b9cf1a28bcfdea5cfa272 Mon Sep 17 00:00:00 2001
+From: Lu <gravitydiv10@protonmail.com>
+Date: Sun, 28 Jan 2024 17:15:22 +0800
+Subject: [PATCH 9/9] hw: net: mt7628-eth: fix build on new qemu
+
+---
+ hw/net/mt7628-eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/hw/net/mt7628-eth.c b/hw/net/mt7628-eth.c
+index cbcf170fa4..95c3433718 100644
+--- a/hw/net/mt7628-eth.c
++++ b/hw/net/mt7628-eth.c
+@@ -542,7 +542,7 @@ static void mt7628_eth_realize(DeviceState *dev, Error **errp) {
+ 
+     s->nic = qemu_new_nic(&net_mt7628_eth_info, &s->conf,
+                           object_get_typename(OBJECT(dev)), dev->id,
+-                          dev->mem_reentrancy_guard,
++                          &dev->mem_reentrancy_guard,
+                           s);
+     qemu_format_nic_info_str(qemu_get_queue(s->nic), s->conf.macaddr.a);
+ 
+-- 
+2.35.8
+

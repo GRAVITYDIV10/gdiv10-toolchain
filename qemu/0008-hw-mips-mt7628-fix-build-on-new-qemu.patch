@@ -1,0 +1,24 @@
+From 144f7012864a9caf2564723ce75caef0484330a0 Mon Sep 17 00:00:00 2001
+From: Lu <gravitydiv10@protonmail.com>
+Date: Sun, 28 Jan 2024 17:15:08 +0800
+Subject: [PATCH 8/9] hw: mips: mt7628: fix build on new qemu
+
+---
+ hw/mips/mt7628.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/hw/mips/mt7628.c b/hw/mips/mt7628.c
+index 844030f76a..8d68edacf1 100644
+--- a/hw/mips/mt7628.c
++++ b/hw/mips/mt7628.c
+@@ -27,7 +27,6 @@
+ #include "hw/sysbus.h"
+ #include "sysemu/sysemu.h"
+ #include "hw/mips/mips.h"
+-#include "hw/mips/cpudevs.h"
+ #include "hw/mips/mt7628.h"
+ #include "hw/misc/unimp.h"
+ 
+-- 
+2.35.8
+
