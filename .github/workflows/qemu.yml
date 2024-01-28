@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  mktoolchain:
+  mkqemu:
     strategy:
       fail-fast: false
 
@@ -45,6 +45,8 @@ jobs:
               git clone https://github.com/qemu/qemu
               pushd qemu
                 git reset --hard b9c4a2018aa9c89233b8fc68ce26faf8e4ce1c78
+                git config user.name "github"
+                git config user.email "github@github.com"
                 for i in ../gdiv10-toolchain/qemu/*.patch
                 do
                   git am $i
